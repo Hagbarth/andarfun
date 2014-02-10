@@ -27,6 +27,7 @@ public class CustomActivity extends AndARActivity {
         try {
             //register a object for each marker type
             artoolkit = super.getArtoolkit();
+<<<<<<< HEAD
 
             tableObject = new TableObject("table", "table.patt", 80.0, new double[]{0, 0});
             artoolkit.registerARObject(tableObject);
@@ -39,6 +40,19 @@ public class CustomActivity extends AndARActivity {
             /*someObject = new CustomObject
                     ("test", "barcode.patt", 80.0, new double[]{0, 0});
             artoolkit.registerARObject(someObject);*/
+=======
+            //someObject = new CustomObject("test", "patt.hiro", 80.0, new double[]{0, 0});
+            //artoolkit.registerARObject(someObject);
+            someObject = new CustomObject
+                    ("test", "android.patt", 80.0, new double[]{0, 0});
+            artoolkit.registerARObject(someObject);
+            someObject = new CustomObject
+                    ("test", "android.patt", 80.0, new double[]{0, 0});
+            artoolkit.registerARObject(someObject);
+            //someObject = new CustomObject
+            //        ("test", "barcode.patt", 80.0, new double[]{0, 0});
+            //artoolkit.registerARObject(someObject);
+>>>>>>> 4d8501bc0205888cc7ddabcd1750c342a078cae1
 
         } catch (AndARException ex) {
             //handle the exception, that means: show the user what happened

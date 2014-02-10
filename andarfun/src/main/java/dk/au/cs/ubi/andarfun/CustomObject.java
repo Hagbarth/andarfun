@@ -1,5 +1,7 @@
 package dk.au.cs.ubi.andarfun;
 
+import android.util.Log;
+
 import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -59,18 +61,19 @@ public class CustomObject extends ARObject {
     @Override
     public final void draw(GL10 gl) {
         super.draw(gl);
-
+        gl.glColor4f(0.0f, 1.0f, 1.0f, 1.0f);
         gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_SPECULAR, mat_flash);
         gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_SHININESS, mat_flash_shiny);
         gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_DIFFUSE, mat_diffuse);
         gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_AMBIENT, mat_ambient);
 
         //draw cube
-        gl.glColor4f(0, 1.0f, 0, 1.0f);
-        gl.glTranslatef(0.0f, 0.0f, 12.5f);
+        //gl.glTranslatef(0.0f, 0.0f, 12.5f);
+       // Log.e("hej", "hej");
 
         //draw the box
         box.draw(gl);
+        Log.e("box: ", box.toString());
     }
 
     @Override
