@@ -15,6 +15,7 @@ import edu.dhbw.andar.exceptions.AndARException;
 public class CustomActivity extends AndARActivity {
 
     CustomObject someObject;
+    TableObject tableObject;
     ARToolkit artoolkit;
 
     @Override
@@ -26,15 +27,19 @@ public class CustomActivity extends AndARActivity {
         try {
             //register a object for each marker type
             artoolkit = super.getArtoolkit();
-            someObject = new CustomObject
-                    ("test", "patt.hiro", 80.0, new double[]{0, 0});
+
+            tableObject = new TableObject("table", "table.patt", 80.0, new double[]{0, 0});
+            artoolkit.registerARObject(tableObject);
+
+            someObject = new CustomObject("couch", "couch.patt", 80.0, new double[]{0, 0});
             artoolkit.registerARObject(someObject);
-            someObject = new CustomObject
-                    ("test", "android.patt", 80.0, new double[]{0, 0});
-            artoolkit.registerARObject(someObject);
-            someObject = new CustomObject
+
+
+
+            /*someObject = new CustomObject
                     ("test", "barcode.patt", 80.0, new double[]{0, 0});
-            artoolkit.registerARObject(someObject);
+            artoolkit.registerARObject(someObject);*/
+
         } catch (AndARException ex) {
             //handle the exception, that means: show the user what happened
             System.out.println("");
