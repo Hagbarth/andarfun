@@ -19,6 +19,9 @@
  */
 package lib.graphics;
 
+import android.opengl.GLUtils;
+import android.util.Log;
+
 import java.io.Serializable;
 import java.io.Writer;
 import java.util.HashMap;
@@ -26,10 +29,6 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import javax.microedition.khronos.opengles.GL10;
-
-import android.opengl.GLDebugHelper;
-import android.opengl.GLUtils;
-import android.util.Log;
 
 import edu.dhbw.andar.ARObject;
 import lib.models.Group;
@@ -42,15 +41,16 @@ import lib.models.Model;
  * @author tobi
  *
  */
-public class Model3D extends ARObject implements Serializable{
+public class KingModel3D extends ARObject implements Serializable{
 
     private Model model;
 	private Group[] texturedGroups;
 	private Group[] nonTexturedGroups;
 	private HashMap<Material, Integer> textureIDs = new HashMap<Material, Integer>();
-	
-	public Model3D(Model model) {
-		super("model", "barcode.patt", 80.0, new double[]{0,0});
+
+	public KingModel3D(Model model, String fileName) {
+
+		super("model", fileName+".patt", 80.0, new double[]{25,25});
 		this.model = model;
 		model.finalize();
 		//separate texture from non textured groups for performance reasons

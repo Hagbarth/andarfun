@@ -26,7 +26,6 @@ import java.util.Vector;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import edu.dhbw.andobjviewer.AugmentedModelViewerActivity;
 import lib.models.Vector3D;
 import lib.util.MemUtil;
 
@@ -61,15 +60,6 @@ public class Renderer implements GLSurfaceView.Renderer {
 	
 	@Override
 	public void onDrawFrame(GL10 gl) {
-		if(AugmentedModelViewerActivity.DEBUG) {
-			frame++;
-			time=System.currentTimeMillis();
-			if (time - timebase > 1000) {
-				Log.d("fps: ", String.valueOf(frame*1000.0f/(time-timebase)));
-			 	timebase = time;		
-				frame = 0;
-			}
-		}
 		//String extensions = gl.glGetString(GL10.GL_EXTENSIONS);
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 		gl.glLoadIdentity();

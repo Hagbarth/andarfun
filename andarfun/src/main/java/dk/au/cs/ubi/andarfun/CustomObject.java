@@ -21,14 +21,14 @@ public class CustomObject extends ARObject {
     /**
      * Just a box, imported from the AndAR project.
      */
-    private SimpleBox box = new SimpleBox();
+    private ScalableSimpleBox box;
     private FloatBuffer mat_flash;
     private FloatBuffer mat_ambient;
     private FloatBuffer mat_flash_shiny;
     private FloatBuffer mat_diffuse;
 
     public CustomObject(String name, String patternName,
-                        double markerWidth, double[] markerCenter) {
+                        double markerWidth, double[] markerCenter, float scale) {
         super(name, patternName, markerWidth, markerCenter);
         float mat_ambientf[] = {0f, 1.0f, 0f, 1.0f};
         float mat_flashf[] = {0f, 1.0f, 0f, 1.0f};
@@ -40,10 +40,12 @@ public class CustomObject extends ARObject {
         mat_flash_shiny = GraphicsUtil.makeFloatBuffer(mat_flash_shinyf);
         mat_diffuse = GraphicsUtil.makeFloatBuffer(mat_diffusef);
 
+        box = new ScalableSimpleBox(scale);
+
     }
 
     public CustomObject(String name, String patternName,
-                        double markerWidth, double[] markerCenter, float[] customColor) {
+                        double markerWidth, double[] markerCenter, float[] customColor, float scale) {
         super(name, patternName, markerWidth, markerCenter);
         float mat_flash_shinyf[] = {50.0f};
 
@@ -52,6 +54,7 @@ public class CustomObject extends ARObject {
         mat_flash_shiny = GraphicsUtil.makeFloatBuffer(mat_flash_shinyf);
         mat_diffuse = GraphicsUtil.makeFloatBuffer(customColor);
 
+        box = new ScalableSimpleBox(scale);
     }
 
     /**
@@ -67,9 +70,6 @@ public class CustomObject extends ARObject {
         gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_DIFFUSE, mat_diffuse);
         gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_AMBIENT, mat_ambient);
 
-        //draw cube
-        //gl.glTranslatef(0.0f, 0.0f, 12.5f);
-       // Log.e("hej", "hej");
 
         //draw the box
         box.draw(gl);
