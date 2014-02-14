@@ -50,7 +50,7 @@ public class CustomActivity extends AndARActivity {
 
 
 
-            someObject = new CustomObject
+            /*someObject = new CustomObject
                     ("test", "1.patt", 80.0, new double[]{0, 0}, new float[]{0.74f,0.84f,0.0f}, 1.f);
             artoolkit.registerARObject(someObject);
 
@@ -58,13 +58,13 @@ public class CustomActivity extends AndARActivity {
                     ("test", "2.patt", 80.0, new double[]{0, 0}, new float[]{0.22f,0.76f,0.95f}, 3.0f);
             artoolkit.registerARObject(someObject2);
 
-            /*someObject3 = new CustomObject
+            *//*someObject3 = new CustomObject
                     ("test", "3.patt", 80.0, new double[]{0, 0}, new float[]{0.93f,0.74f,0.04f}, 1.5f);
-            artoolkit.registerARObject(someObject3);*/
+            artoolkit.registerARObject(someObject3);*//*
 
             someObject4 = new CustomObject
                     ("test", "3.patt", 80.0, new double[]{0, 0}, new float[]{0.88f,0.09f,0.12f}, 2.0f);
-            artoolkit.registerARObject(someObject4 );
+            artoolkit.registerARObject(someObject4 );*/
 
         } catch (Exception ex) {
             //handle the exception, that means: show the user what happened
@@ -109,7 +109,7 @@ public class CustomActivity extends AndARActivity {
                         BufferedReader fileReader = fileUtil.getReaderFromName(modelFileName);
                         if(fileReader != null) {
                             model = parser.parse(patternName, fileReader);
-                            model.scale = 100.0f;
+                            model.scale = 600.0f;
                             finishModel = new KingModel3D(model, patternName);
 
 

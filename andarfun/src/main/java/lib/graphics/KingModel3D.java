@@ -50,7 +50,7 @@ public class KingModel3D extends ARObject implements Serializable{
 
 	public KingModel3D(Model model, String fileName) {
 
-		super("model", fileName+".patt", 80.0, new double[]{25,25});
+		super("model", fileName+".patt", 80.0, new double[]{300,300});
 		this.model = model;
 		model.finalize();
 		//separate texture from non textured groups for performance reasons
